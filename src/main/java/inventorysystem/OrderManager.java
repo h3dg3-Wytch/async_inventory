@@ -27,16 +27,14 @@ public class OrderManager implements Runnable{
         while (true){
             System.out.println("\nStarting Order Manager, we will being setup by reading the input file\n");
             try {
-                //List<Integer> integers = reader.readFile(filePath);
+                List<Integer> integers = reader.readFile(filePath);
 
-                int[] integers = {1, 4, 6};
 
                 int i = 0;
-                while(i < integers.length) {
-                    //for(Integer integer : integers){
+                while(i < integers.size()) {
 
                     System.out.println("\nAttempting to retrieve from Inventory...");
-                    if (inventory.retrieveFromInventory(integers[i])) {
+                    if (inventory.retrieveFromInventory(integers.get(i))) {
                         System.out.println("Retrieved! Inventory is now at " + inventory.getAmountOfWidgets() + " units. Sending out inventory items!");
                         i++;
                     } else {
